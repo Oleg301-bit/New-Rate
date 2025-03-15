@@ -35,8 +35,7 @@ console.log(calculateNewRate(20, 18));
 console.log(calculateNewRate(25, 10));
 console.log(calculateNewRate(50, 30));
 console.log(calculateNewRate('gfgfgfg', 30));
-console.log(calculateNewRate(50, 'ffgfgfgfg', 20));
-console.log(calculateNewRate(30, 50, -20));
-console.log(calculateNewRate(0, 20, 0));
-console.log(calculateNewRate(0, 5, 0));
-
+console.log(calculateNewRate(50, 'ffgfgfgfg'));
+console.log(calculateNewRate(30, 50));
+console.log(calculateNewRate(0, 20));
+console.log(calculateNewRate(0, 5));
