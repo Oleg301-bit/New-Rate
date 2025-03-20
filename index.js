@@ -3,17 +3,18 @@
  *
  * @param {number} yourRate
  * @param {number} opponentRate
- * @param {number} differenceRate
- * @returns {Error}
+ * @returns {number}
  */
 function calculateNewRate(yourRate, opponentRate) {
   if (
     typeof yourRate !== 'number' ||
     typeof opponentRate !== 'number' ||
+    isNaN(yourRate) ||
+    isNaN(opponentRate) ||
     yourRate < 0 ||
     opponentRate < 0
   ) {
-    return 'Error';
+    return NaN;
   }
   if (yourRate === 0) {
     return opponentRate;
@@ -25,11 +26,11 @@ function calculateNewRate(yourRate, opponentRate) {
     return Number(yourRate + 1).toFixed(1);
   } else if (differenceRate >= 20) {
     return Number(yourRate).toFixed(1);
-  } else {
-    return Number((opponentRate - yourRate + 5) / 3 + yourRate).toFixed(1);
   }
+  return Number((Math.abs(differenceRate) + 5) / 3 + yourRate).toFixed(1);
 }
 console.log(calculateNewRate(10, 10));
+console.log(calculateNewRate(10, 20));
 console.log(calculateNewRate(15, 14));
 console.log(calculateNewRate(20, 18));
 console.log(calculateNewRate(25, 10));
@@ -39,3 +40,4 @@ console.log(calculateNewRate(50, 'ffgfgfgfg'));
 console.log(calculateNewRate(30, 50));
 console.log(calculateNewRate(0, 20));
 console.log(calculateNewRate(0, 5));
+console.log(calculateNewRate(NaN, 5));
