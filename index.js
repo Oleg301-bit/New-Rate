@@ -13,7 +13,7 @@ function calculateNewRate(yourRate, opponentRate) {
     isNaN(opponentRate) ||
     yourRate < 0 ||
     opponentRate < 0
-  ) {
+  ) {  
     return NaN;
   }
   if (yourRate === 0) {
