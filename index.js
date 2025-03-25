@@ -7,27 +7,27 @@
  */
 function calculateNewRate(yourRate, opponentRate) {
   if (
-    typeof yourRate !== 'number' ||
-    typeof opponentRate !== 'number' ||
-    isNaN(yourRate) ||
-    isNaN(opponentRate) ||
+    !isFinite(yourRate) ||
+    !isFinite(opponentRate) ||
     yourRate < 0 ||
     opponentRate < 0
-  ) {  
-    return NaN;
+  ) {
+    return 'Please check your input data';
   }
+
   if (yourRate === 0) {
     return opponentRate;
   }
+
   const differenceRate = yourRate - opponentRate;
   if (differenceRate >= 0 && differenceRate <= 2) {
-    return Number(yourRate + 2).toFixed(1);
+    return +(yourRate + 2).toFixed(1);
   } else if (differenceRate > 2 && differenceRate < 20) {
-    return Number(yourRate + 1).toFixed(1);
+    return +(yourRate + 1).toFixed(1);
   } else if (differenceRate >= 20) {
-    return Number(yourRate).toFixed(1);
+    return +yourRate.toFixed(1);
   }
-  return Number((Math.abs(differenceRate) + 5) / 3 + yourRate).toFixed(1);
+  return +((Math.abs(differenceRate) + 5) / 3 + yourRate).toFixed(1);
 }
 console.log(calculateNewRate(10, 10));
 console.log(calculateNewRate(10, 20));
